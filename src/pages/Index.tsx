@@ -24,21 +24,29 @@ const Index = () => {
         </nav>
       </header>
 
-      <section className="relative bg-gradient-to-br from-primary/10 via-white to-accent/10 py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/27a93d32-bbe1-4f45-baf0-1298da6e1155/files/37481f53-56e1-4f9f-9f16-f308cd5778f3.jpg" 
+            alt="Fitness gym" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl space-y-6 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
               Достигай своих <span className="text-accent">спортивных целей</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <p className="text-xl md:text-2xl text-white/90">
               Профессиональные тренировки, персональный подход и результаты уже через месяц
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8 py-6">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-lg px-8 py-6 shadow-xl">
                 <Icon name="Zap" size={20} className="mr-2" />
                 Получить консультацию
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8 py-6">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6">
                 <Icon name="Play" size={20} className="mr-2" />
                 Смотреть видео
               </Button>
@@ -47,7 +55,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="benefits" className="py-20 bg-white">
+      <section id="benefits" className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
             Почему выбирают нас
@@ -63,10 +71,10 @@ const Index = () => {
               { icon: "TrendingUp", title: "Видимый результат", description: "Первые изменения уже через 2-3 недели занятий" },
               { icon: "Award", title: "Современное оборудование", description: "Оснащение по последним мировым стандартам" }
             ].map((benefit, idx) => (
-              <Card key={idx} className="border-2 hover:border-accent transition-all hover:shadow-lg">
+              <Card key={idx} className="border-0 shadow-lg hover:shadow-xl transition-all hover:scale-105 bg-white/80 backdrop-blur-sm">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <Icon name={benefit.icon} size={32} className="text-accent" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent/70 rounded-full flex items-center justify-center mb-4 shadow-md">
+                    <Icon name={benefit.icon} size={32} className="text-white" />
                   </div>
                   <CardTitle className="text-xl">{benefit.title}</CardTitle>
                 </CardHeader>
@@ -79,8 +87,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="programs" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
+      <section id="programs" className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/27a93d32-bbe1-4f45-baf0-1298da6e1155/files/e7d6bdab-0a2c-4f66-941b-bfce005cfc43.jpg" 
+            alt="Running" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
             Программы тренировок
           </h2>
@@ -95,7 +110,8 @@ const Index = () => {
                 title: "Силовые тренировки",
                 description: "Набор массы, работа с весами, функциональный тренинг",
                 features: ["3-5 раз в неделю", "Индивидуальный план", "Контроль питания"],
-                price: "от 3 000 ₽/мес"
+                price: "от 3 000 ₽/мес",
+                image: "https://cdn.poehali.dev/projects/27a93d32-bbe1-4f45-baf0-1298da6e1155/files/37481f53-56e1-4f9f-9f16-f308cd5778f3.jpg"
               },
               {
                 icon: "Heart",
@@ -103,26 +119,34 @@ const Index = () => {
                 description: "Бег, плавание, велотренировки для улучшения здоровья",
                 features: ["4-6 раз в неделю", "Групповые занятия", "Трекинг прогресса"],
                 price: "от 2 500 ₽/мес",
-                popular: true
+                popular: true,
+                image: "https://cdn.poehali.dev/projects/27a93d32-bbe1-4f45-baf0-1298da6e1155/files/e7d6bdab-0a2c-4f66-941b-bfce005cfc43.jpg"
               },
               {
                 icon: "Sparkles",
                 title: "Йога и растяжка",
                 description: "Гибкость, баланс, ментальное здоровье",
                 features: ["2-3 раза в неделю", "Медитации", "Онлайн доступ"],
-                price: "от 2 000 ₽/мес"
+                price: "от 2 000 ₽/мес",
+                image: "https://cdn.poehali.dev/projects/27a93d32-bbe1-4f45-baf0-1298da6e1155/files/c6fbe0fc-e375-4d98-acb1-af2eadc6be8f.jpg"
               }
             ].map((program, idx) => (
-              <Card key={idx} className={`relative ${program.popular ? 'border-accent border-2 shadow-xl scale-105' : 'border'}`}>
-                {program.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm font-bold">
-                    Популярно
+              <Card key={idx} className={`relative overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all ${program.popular ? 'border-accent border-2 scale-105' : 'border-0'}`}>
+                <div className="relative h-48 overflow-hidden">
+                  <img src={program.image} alt={program.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  {program.popular && (
+                    <div className="absolute top-4 right-4 bg-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+                      Популярно
+                    </div>
+                  )}
+                  <div className="absolute bottom-4 left-4">
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <Icon name={program.icon} size={32} className="text-primary" />
+                    </div>
                   </div>
-                )}
+                </div>
                 <CardHeader>
-                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                    <Icon name={program.icon} size={40} className="text-primary" />
-                  </div>
                   <CardTitle className="text-2xl text-center">{program.title}</CardTitle>
                   <CardDescription className="text-center text-base">{program.description}</CardDescription>
                 </CardHeader>
@@ -148,7 +172,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="faq" className="py-20 bg-white">
+      <section id="faq" className="py-20 bg-gradient-to-br from-white to-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
             Частые вопросы
@@ -181,7 +205,7 @@ const Index = () => {
                   answer: "Да, мы предлагаем бесплатное первое занятие, чтобы вы могли познакомиться с тренером и попробовать наш подход."
                 }
               ].map((faq, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="border rounded-lg px-6 bg-white shadow-sm">
+                <AccordionItem key={idx} value={`item-${idx}`} className="border-0 rounded-lg px-6 bg-white shadow-md hover:shadow-lg transition-shadow">
                   <AccordionTrigger className="text-left font-semibold text-lg hover:text-accent">
                     {faq.question}
                   </AccordionTrigger>
